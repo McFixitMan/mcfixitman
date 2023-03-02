@@ -21,6 +21,12 @@
             }
         }
     },
+    "App": {
+        "reload_now_text": "Reload Now",
+        "update_available_description": "mcfixitman has been updated! Reload the page for the latest version",
+        "update_available_title": "Update Available",
+        "update_cancelled_message": "mcfixitman will be updated the next time the page is reloaded"
+    },
     "Common": {
         "accept": "Accept",
         "add": "Add",
@@ -79,12 +85,6 @@
         "yes": "Yes"
     },
     "Components": {
-        "App": {
-            "reload_now_text": "Reload Now",
-            "update_available_description": "mcfixitman has been updated! Reload the page for the latest version",
-            "update_available_title": "Update Available",
-            "update_cancelled_message": "mcfixitman will be updated the next time the page is reloaded"
-        },
         "AppDrawer": {
             "title": "Menu"
         },
