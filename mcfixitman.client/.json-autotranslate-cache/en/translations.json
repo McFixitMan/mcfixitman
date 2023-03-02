@@ -1,0 +1,152 @@
+{
+    "Api": {
+        "FailedResponse": {
+            "Common": {
+                "forbidden": "Forbidden",
+                "invalid_email_address": "Invalid email address supplied",
+                "invalid_parameters": "One or more parameters were invalid",
+                "missing_required_parameters": "Missing required parameters",
+                "resource_not_found": "The requested resource was not found",
+                "unauthorized": "Unauthorized",
+                "unexpected_error": "An unexpected error occurred"
+            },
+            "SecurityController": {
+                "incorrect_username_or_password": "Incorrect username or password",
+                "invalid_token": "Invalid token",
+                "missing_uuid": "No UUID provided",
+                "no_token_provided": "No token provided",
+                "not_logged_in": "Not logged in",
+                "token_not_found": "Token not found",
+                "user_not_found": "User not found"
+            }
+        }
+    },
+    "Common": {
+        "accept": "Accept",
+        "add": "Add",
+        "back": "Back",
+        "cancel": "Cancel",
+        "clear": "Clear",
+        "close": "Close",
+        "confirm": "Confirm",
+        "confirmation": "Confirmation",
+        "create": "Create",
+        "decline": "Decline",
+        "delete": "Delete",
+        "dismiss": "Dismiss",
+        "edit": "Edit",
+        "error": "Error",
+        "filter": "Filter",
+        "go_back": "Go Back",
+        "loading": "Loading...",
+        "next": "Next",
+        "next_page": "Next Page",
+        "no": "No",
+        "off": "Off",
+        "ok": "OK",
+        "on": "On",
+        "preview": "Preview",
+        "previous": "Previous",
+        "previous_page": "Previous Page",
+        "reload": "Reload",
+        "remove": "Remove",
+        "reset": "Reset",
+        "restore": "Restore",
+        "return": "Return",
+        "save": "Save",
+        "search": "Search",
+        "searching": "Searching...",
+        "submit": "Submit",
+        "success": "Success",
+        "table": {
+            "cancel_sort_tooltip": "Click to cancel sorting",
+            "sort_ascending_tooltip": "Click to sort ascending",
+            "sort_descending_tooltip": "Click to sort descending"
+        },
+        "unexpected_error": "An unexpected error occurred",
+        "update": "Update",
+        "validation": {
+            "confirmation_required": "You must confirm to continue",
+            "mismatch_pattern_message": "{{field}} is not a valid format",
+            "range_number_message": "{{field}} must be between {{min}} and {{max}}",
+            "required_field_generic_message": "You must select an answer to this question",
+            "required_field_message": "{{field}} is required",
+            "valid_email_message": "{{field}} is not a valid email",
+            "valid_number_message": "{{field}} is not a valid number"
+        },
+        "view": "View",
+        "warning": "Warning",
+        "yes": "Yes"
+    },
+    "Components": {
+        "App": {
+            "reload_now_text": "Reload Now",
+            "update_available_description": "McFixitman has been updated! Reload the page for the latest version",
+            "update_available_title": "Update Available",
+            "update_cancelled_message": "McFixitman will be updated the next time the page is reloaded"
+        },
+        "AppDrawer": {
+            "title": "Menu"
+        },
+        "Forms": {
+            "LoginForm": {
+                "login_button_text": "Login",
+                "password_label": "Password",
+                "password_placeholder": "Password",
+                "username_label": "Username",
+                "username_placeholder": "Username"
+            }
+        },
+        "FullscreenButton": {
+            "turn_off_fullscreen_button_text": "Turn off fullscreen",
+            "turn_on_fullscreen_button_text": "Turn on fullscreen"
+        },
+        "LanguageButton": {
+            "change_language_text": "Change Language"
+        },
+        "LoggedInAccount": {
+            "login_text": "Login",
+            "logout_confirmation_button_text": "Yes, logout",
+            "logout_confirmation_message": "Are you sure you want to logout?",
+            "logout_text": "Logout"
+        },
+        "PageWrapper": {
+            "go_back_text": "Go Back",
+            "go_home_text": "Go Home",
+            "login_text": "Log In",
+            "logout_text": "Log Out",
+            "reload_text": "Reload"
+        },
+        "ThemeButton": {
+            "button_text": "Theme"
+        },
+        "ThemeChanger": {
+            "color_header": "Accent Color",
+            "dark_mode_option_text": "Dark Mode",
+            "light_mode_option_text": "Light Mode",
+            "theme_header": "Theme"
+        }
+    },
+    "Pages": {
+        "HomePage": {
+            "title": "Home Page"
+        },
+        "LoginPage": {
+            "already_logged_in_message": "You're already logged in!",
+            "already_logged_in_message_personal": "{{user}}, you're already logged in!",
+            "login_error": "Unable to login",
+            "login_header": "Login",
+            "login_message": "Enter your username and password to login",
+            "title": "Login"
+        },
+        "NotAuthorizedPage": {
+            "header": "Unauthorized",
+            "subheader": "You don't have the required permissions to be here"
+        },
+        "NotFoundPage": {
+            "header": "Page Not Found",
+            "subheader": "We couldn't find anything at {{- path}}",
+            "title": "Not Found"
+        }
+    }
+}

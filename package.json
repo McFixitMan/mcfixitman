@@ -1,0 +1,21 @@
+{
+    "private": true,
+    "license": "ISC",
+    "workspaces": {
+        "packages": [
+            "mcfixitman.api",
+            "mcfixitman.client",
+            "mcfixitman.shared"
+        ],
+        "nohoist": [
+            "**"
+        ]
+    },
+    "dependencies": {},
+    "scripts": {
+        "docker-build:local": "docker build . -t mcfixitman:local",
+        "rollout:local": "kubectl rollout restart deployment/mcfixitman",
+        "deploy:local": "yarn docker-build:local && yarn rollout:local",
+        "smtp4dev": "docker run --rm -it -p 4000:80 -p 2525:25 rnwood/smtp4dev"
+    }
+}

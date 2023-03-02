@@ -1,0 +1,57 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Attach Client",
+            "cwd": "${workspaceRoot}/mcfixitman.client",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceRoot}\\mcfixitman.client",
+            // "preLaunchTask": "startClient"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "preLaunchTask": "buildApi",
+            "name": "Launch API",
+            "console": "internalConsole",
+            "program": "${workspaceRoot}/mcfixitman.api/src/app.ts",
+            "outFiles": [
+                "${workspaceRoot}/mcfixitman.api/build/**/*.js"
+            ],
+            "envFile": "${workspaceFolder}/mcfixitman.api/.env",
+            "sourceMaps": true,
+            "outputCapture": "std",
+            "internalConsoleOptions": "openOnSessionStart",
+            "sourceMapPathOverrides": {
+                "meteor://💻app/*": "${workspaceFolder}/mcfixitman.api/*",
+                "webpack:///./~/*": "${workspaceFolder}/mcfixitman.api/node_modules/*",
+                "webpack://?:*/*": "${workspaceFolder}/mcfixitman.api/*"
+            }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "preLaunchTask": "buildService",
+            "name": "Launch Service",
+            "console": "internalConsole",
+            "program": "${workspaceRoot}/mcfixitman.service/src/app.ts",
+            "outFiles": [
+                "${workspaceRoot}/mcfixitman.service/build/**/*.js"
+            ],
+            "envFile": "${workspaceFolder}/mcfixitman.service/.env",
+            "sourceMaps": true,
+            "outputCapture": "std",
+            "internalConsoleOptions": "openOnSessionStart",
+            "sourceMapPathOverrides": {
+                "meteor://💻app/*": "${workspaceFolder}/mcfixitman.service/*",
+                "webpack:///./~/*": "${workspaceFolder}/mcfixitman.service/node_modules/*",
+                "webpack://?:*/*": "${workspaceFolder}/mcfixitman.service/*"
+            }
+        },
+    ]
+}

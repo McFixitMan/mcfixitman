@@ -1,0 +1,5 @@
+**/*.js
+src/serviceWorker.ts
+src/**/__tests__/**
+src/generated
+**/index.html

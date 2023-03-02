@@ -1,0 +1,31 @@
+{
+    "extends": ["plugin:@typescript-eslint/recommended"],
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "rules": {
+        "comma-dangle": ["error", "always-multiline"],
+        "indent": "off",
+        "no-extra-boolean-cast": "off",
+        "object-curly-spacing": ["warn", "always"],
+        "prefer-object-spread": "error",
+        "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+        "semi": ["error", "always"],
+        "sort-imports": "warn",
+
+        "@typescript-eslint/array-type": ["warn", { "default": "generic" }],
+        "@typescript-eslint/explicit-function-return-type": ["error", {
+            "allowExpressions": true
+        }],
+        "@typescript-eslint/indent": "error",
+        "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/no-inferrable-types": "off",
+        "@typescript-eslint/no-use-before-define": "off",
+        "@typescript-eslint/no-unused-vars": ["warn", {
+            "vars": "local",
+            "args": "none",
+            "varsIgnorePattern": "^_",
+            "ignoreRestSiblings": false
+        }]
+    }
+}

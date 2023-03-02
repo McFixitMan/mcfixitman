@@ -1,0 +1,1 @@
+CREATE TABLE `mcfixitman`.`refresh_token` (`id` INT NOT NULL AUTO_INCREMENT, `member_id` INT NOT NULL, `device_uuid` VARCHAR(255) NOT NULL, `token_hash` NVARCHAR(255) NOT NULL, `created_at` DATETIME NOT NULL, `updated_at` DATETIME NULL, PRIMARY KEY (`id`), UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);

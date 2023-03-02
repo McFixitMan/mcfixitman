@@ -1,0 +1,7 @@
+# Ignore all of the HTML, CSS, JS build assets
+
+\node_modules
+
+*.map
+*.js
+*.css

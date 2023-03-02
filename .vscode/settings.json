@@ -1,0 +1,68 @@
+{
+    "npm.packageManager": "yarn",
+    "eslint.packageManager": "yarn",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true,
+        "**/*.map": true,
+        // Exclude js files except for build.js
+        // "**/mcfixitman.api/src/**/*.js": true,
+        "**/mcfixitman.api/deploy": true,
+        "**/mcfixitman.api/dist": true,
+        "**/mcfixitman.api/build": true,
+        "**/mcfixitman.service/src/**/*.js": true,
+        "**/mcfixitman.service/deploy": true,
+        "**/mcfixitman.service/build": true,
+        "**/mcfixitman.client/src/**/*.js": true,
+        "**/mcfixitman.client/build": true
+    },
+    "git.enabled": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.workingDirectories": [
+        {
+            "directory": "mcfixitman.api",
+            "changeProcessCWD": true
+        },
+        {
+            "directory": "mcfixitman.client",
+            "changeProcessCWD": true
+        },
+        {
+            "directory": "mcfixitman.shared",
+            "changeProcessCWD": true
+        },
+        {
+            "directory": "mcfixitman.service",
+            "changeProcessCWD": true
+        }
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+        "source.fixAll": true,
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "html",
+        "typescript",
+        "typescriptreact"
+    ],
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.tsdk": "./mcfixitman.api/node_modules/typescript/lib",
+    "[json]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4
+    },
+    "editor.formatOnSave": true,
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "javascript.preferences.quoteStyle": "auto",
+    "typescript.preferences.quoteStyle": "auto",
+    "typescript.validate.enable": true,
+    "yaml.format.singleQuote": true,
+    "editor.detectIndentation": false,
+}

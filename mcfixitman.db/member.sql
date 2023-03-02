@@ -1,0 +1,1 @@
+CREATE TABLE `mcfixitman`.`member` (`id` INT NOT NULL AUTO_INCREMENT, `email_address` NVARCHAR(255) NULL, `first_name` NVARCHAR(255) NULL, `last_name` NVARCHAR(255) NULL, `password_hash` NVARCHAR(255) NULL, `is_admin` BIT NULL, `created_at` DATETIME NULL, `updated_at` DATETIME NULL, PRIMARY KEY (`id`), UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);

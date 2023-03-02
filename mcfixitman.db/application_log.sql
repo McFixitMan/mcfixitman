@@ -1,0 +1,1 @@
+CREATE TABLE `mcfixitman`.`application_log` (`id` int NOT NULL AUTO_INCREMENT, `error_message` nvarchar(255) DEFAULT NULL, `error_type` nvarchar(255) DEFAULT NULL, `created_at` datetime NOT NULL, `stack_trace` longtext, `created_by` nvarchar(255) DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE KEY `id_UNIQUE` (`id` ASC));

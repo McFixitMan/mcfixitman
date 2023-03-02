@@ -1,0 +1,58 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "target": "es6",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noUncheckedIndexedAccess": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "noImplicitAny": true,
+        "jsx": "react-jsx",
+        "jsxImportSource": "@emotion/react",
+        "types": [
+            "node",
+            "reflect-metadata",
+            "jest",
+            "network-information-types"
+        ],
+        "typeRoots": [
+            "./node_modules/@types"
+        ],
+        "plugins": [
+            {
+                "name": "typescript-tslint-plugin"
+            }
+        ],
+        "noFallthroughCasesInSwitch": true
+    },
+    "include": [
+        "src",
+        "src/types"
+    ],
+    "exclude": [
+        "node_modules",
+        "build",
+        "scripts",
+        "acceptance-tests",
+        "webpack",
+        "jest",
+        "src/setupTests.ts",
+        "public",
+        "config-overrides.js",
+        "src/serviceWorker.ts",
+        "src/styles"
+    ]
+}
