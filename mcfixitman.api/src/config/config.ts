@@ -30,6 +30,19 @@ export interface ConfigDiscord {
     botToken: string;
 }
 
+export interface ConfigMail {
+    useAuth: boolean;
+    emailUser: string;
+    emailPassword: string;
+    host: string;
+    port: number;
+    fromName: string;
+    fromAddress: string;
+    ignoreTLS: boolean;
+    secure: boolean;
+    connectionTimeoutMilliseconds: number;
+}
+
 export interface ConfigSetting {
     baseRoutePath: string;
     port: number;
@@ -39,6 +52,7 @@ export interface ConfigSetting {
     configDb: ConfigDb;
     openAi: ConfigOpenAi;
     discord: ConfigDiscord;
+    mail: ConfigMail;
 }
 
 export interface ConfigSettings {
@@ -75,6 +89,18 @@ const config: ConfigSetting = {
     },
     discord: {
         botToken: process.env.DISCORD_BOT_TOKEN ?? '',
+    },
+    mail: {
+        connectionTimeoutMilliseconds: !!process.env.MAIL_CONNECTION_TIMEOUT_MS ? parseInt(process.env.MAIL_CONNECTION_TIMEOUT_MS) : 15000,
+        emailPassword: process.env.MAIL_PASSWORD ?? '',
+        emailUser: process.env.MAIL_USER ?? '',
+        fromName: process.env.MAIL_FROM_NAME ?? 'McFixitMan',
+        fromAddress: process.env.MAIL_FROM_ADDRESS ?? 'mailer@mcfixitman.com',
+        host: process.env.MAIL_HOST ?? 'localhost',
+        ignoreTLS: !!process.env.MAIL_IGNORE_TLS ? JSON.parse(process.env.MAIL_IGNORE_TLS) : true,
+        port: !!process.env.MAIL_PORT ? parseInt(process.env.MAIL_PORT) : 25,
+        secure: !!process.env.MAIL_SECURE ? JSON.parse(process.env.MAIL_SECURE) : false,
+        useAuth: !!process.env.MAIL_USE_AUTH ? JSON.parse(process.env.MAIL_USE_AUTH) : false,
     },
 };
 
