@@ -55,7 +55,7 @@ const membersRepo = sequelizeInstance.define<MemberInstance, MemberCreationAttri
     updatedAt: 'updatedAt',
     defaultScope: {
         attributes: {
-            exclude: ['password_hash'],
+            exclude: ['passwordHash'],
         },
     },
     scopes: {

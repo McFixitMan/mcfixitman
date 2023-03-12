@@ -11,7 +11,7 @@
                 "unexpected_error": "An unexpected error occurred"
             },
             "SecurityController": {
-                "incorrect_username_or_password": "Incorrect username or password",
+                "incorrect_username_or_password": "Incorrect email or password",
                 "invalid_token": "Invalid token",
                 "missing_uuid": "No UUID provided",
                 "no_token_provided": "No token provided",
@@ -23,9 +23,9 @@
     },
     "App": {
         "reload_now_text": "Reload Now",
-        "update_available_description": "mcfixitman has been updated! Reload the page for the latest version",
+        "update_available_description": "McFixitMan has been updated! Reload the page for the latest version",
         "update_available_title": "Update Available",
-        "update_cancelled_message": "mcfixitman will be updated the next time the page is reloaded"
+        "update_cancelled_message": "McFixitMan will be updated the next time the page is reloaded"
     },
     "Common": {
         "accept": "Accept",
