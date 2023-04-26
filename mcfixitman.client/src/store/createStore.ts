@@ -8,31 +8,30 @@ import {
     socketReducer,
 } from 'src/store/modules';
 
-import { AiState } from 'src/store/state/aiState';
 import { AppDispatch } from 'src/types/reduxHelpers';
 import { SecurityState } from 'src/store/state/securityState';
 import { ThemeState } from 'src/store/state/themeState';
 import { aiReducer } from 'src/store/modules/aiModule';
+import { chatReducer } from 'src/store/modules/chatModule';
 import { combineReducers } from 'redux';
 import { configureStore as configureReduxStore } from '@reduxjs/toolkit';
-import { dateTransform } from 'src/store/transforms';
 import { nameof } from 'ts-simple-nameof';
 import { socketMiddleware } from 'src/store/middleware/socketMiddleware';
 import storage from 'redux-persist/lib/storage';
 import { themeReducer } from 'src/store/modules/themeModule';
 import thunk from 'redux-thunk';
 
-const aiPersistConfig: PersistConfig<AiState> = {
-    key: 'mcfixitman:ai',
-    storage: storage,
-    whitelist: [
-        nameof<AiState>(x => x.completions),
-        nameof<AiState>(x => x.prompts),
-        nameof<AiState>(x => x.lastImagePrompt),
-        nameof<AiState>(x => x.lastImageUri),
-    ],
-    transforms: [dateTransform],
-};
+// const aiPersistConfig: PersistConfig<AiState> = {
+//     key: 'mcfixitman:ai',
+//     storage: storage,
+//     whitelist: [
+//         nameof<AiState>(x => x.completions),
+//         nameof<AiState>(x => x.prompts),
+//         nameof<AiState>(x => x.lastImagePrompt),
+//         nameof<AiState>(x => x.lastImageUri),
+//     ],
+//     transforms: [dateTransform],
+// };
 
 const themePersistConfig: PersistConfig<ThemeState> = {
     key: 'mcfixitman:theme',
@@ -57,7 +56,9 @@ const securityPersistConfig: PersistConfig<SecurityState> = {
 };
 
 const makeRootReducer = combineReducers({
-    ai: persistReducer(aiPersistConfig, aiReducer),
+    // ai: persistReducer(aiPersistConfig, aiReducer),
+    ai: aiReducer,
+    chat: chatReducer,
     drawer: appDrawerReducer,
     locale: localeReducer,
     security: persistReducer(securityPersistConfig, securityReducer),

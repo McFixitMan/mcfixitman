@@ -24,6 +24,8 @@ export interface ConfigSecurity {
 export interface ConfigOpenAi {
     apiKey: string;
     organization: string;
+    model: string;
+    maxTokens: number;
 }
 
 export interface ConfigDiscord {
@@ -86,6 +88,8 @@ const config: ConfigSetting = {
     openAi: {
         apiKey: process.env.OPEN_AI_API_KEY ?? '',
         organization: process.env.OPEN_AI_ORGANIZATION ?? '',
+        model: process.env.OPEN_AI_MODEL ?? 'gpt-3.5-turbo',
+        maxTokens: parseInt(process.env.OPEN_AI_MAX_TOKENS ?? '500'),
     },
     discord: {
         botToken: process.env.DISCORD_BOT_TOKEN ?? '',

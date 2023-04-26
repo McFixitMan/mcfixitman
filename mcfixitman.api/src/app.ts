@@ -15,6 +15,7 @@ import { SocketServer } from 'src/utility/socketUtility';
 import { config } from 'src/config';
 import { getAiRouter } from 'src/routers/aiRouter';
 import { getAiUtility } from 'src/utility/aiUtility';
+import { getChatRouter } from 'src/routers/chatRouter';
 import { getMemberFromAccessToken } from 'src/utility/tokenUtility';
 import {
     getSecurityRouter,
@@ -189,6 +190,7 @@ class App {
     private addRoutersMiddleware = (): void => {
         this.express.use(getSecurityRouter().path, getSecurityRouter().router);
         this.express.use(getAiRouter().path, getAiRouter().router);
+        this.express.use(getChatRouter().path, getChatRouter().router);
     };
 
     /**
@@ -317,9 +319,13 @@ class App {
 
         io.on('connection', (socket) => {
             // Subscriptions are managed here
-            socket.on('exampleClientToServer', (message) => {
-                console.log(message);
-            });
+            if (!!socket.member) {
+                socket.join(socketUtility.getMemberRoom(socket.member.id));
+            }
+
+            // socket.on('exampleClientToServer', (message) => {
+            //     console.log(message);
+            // });
 
             socket.on('disconnect', () => {
                 // Disconnected

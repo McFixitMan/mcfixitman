@@ -1,6 +1,9 @@
 {
     "Api": {
         "FailedResponse": {
+            "Chat": {
+                "chat_not_found": "Chat not found"
+            },
             "Common": {
                 "forbidden": "Forbidden",
                 "invalid_email_address": "Invalid email address supplied",

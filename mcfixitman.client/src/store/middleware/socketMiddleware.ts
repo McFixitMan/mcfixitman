@@ -1,4 +1,5 @@
 import { AnyAction, Middleware } from 'redux';
+import { chatUpdateInProgressChanged, chatUpdated } from 'src/store/modules/chatModule';
 import { connectSocket, connectionChanged, connectionError, disconnectSocket } from 'src/store/modules/socketModule';
 import { login, logout, refreshToken } from 'src/store/modules';
 
@@ -23,6 +24,13 @@ export const socketMiddleware: Middleware<Record<string, unknown>, RootState, Ap
             if (message?.toLowerCase() === 'socket user authentication error') {
                 await store.dispatch(refreshToken(false));
             }
+        },
+
+        chatUpdated: (chat) => {
+            store.dispatch(chatUpdated(chat));
+        },
+        chatUpdateInProgressChanged: (isInProgress) => {
+            store.dispatch(chatUpdateInProgressChanged(isInProgress));
         },
     });
 

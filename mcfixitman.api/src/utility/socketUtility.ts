@@ -1,30 +1,28 @@
 import { ClientToServerEvents, ServerToClientEvents } from 'mcfixitman.shared/types/socketEvents';
 
+import { Chat } from 'mcfixitman.shared/models/dataModels/chat';
 import { Server } from 'socket.io';
 
 export type SocketServer = Server<ClientToServerEvents, ServerToClientEvents>;
 
-export const getDeviceConfigRoom = (deviceConfigId: number): string => {
-    return `DeviceConfig:${deviceConfigId}`;
+export const getMemberRoom = (memberId: number): string => {
+    return `Member:${memberId}`;
 };
-
-export const getFacilityRoom = (facilityId: number): string => {
-    return `Facility:${facilityId}`;
-};
-
-export const getEmergencyAttendanceRoom = (facilityId: number): string => {
-    return `Attendance:${facilityId}`;
-};
-
 
 export interface SocketMessages {
-    sendExampleMessage: (message: string) => void;
+    sendChatUpdatedMessage: (memberId: number, chat: Chat) => void;
+    sendChatUpdateInProgressChangedMessage: (memberId: number, isInProgress: boolean) => void;
 }
 
 export const getMessageHelper = (io?: SocketServer): SocketMessages => {
     return {
-        sendExampleMessage: (message) => {
-            io?.emit('exampleServerToClient', message);
+        sendChatUpdatedMessage: (memberId, chat) => {
+            io?.to(getMemberRoom(memberId))
+                .emit('chatUpdated', chat);
+        },
+        sendChatUpdateInProgressChangedMessage: (memberId, isInProgress) => {
+            io?.to(getMemberRoom(memberId))
+                .emit('chatUpdateInProgressChanged', isInProgress);
         },
     };
 };

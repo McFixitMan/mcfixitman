@@ -1,6 +1,7 @@
-import { Configuration, OpenAIApi } from 'openai';
+import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from 'openai';
 
 import { AiUtility } from 'src/types/aiUtility';
+import { Chat } from 'mcfixitman.shared/models/dataModels/chat';
 import { config } from 'src/config';
 
 let aiUtility: AiUtility | undefined;
@@ -14,14 +15,51 @@ export const getAiUtility = (): AiUtility => {
 
         const openAi = new OpenAIApi(configuration);
 
+        const createChatCompletion = async (chat: Chat): Promise<string> => {
+            try {
+                if (!chat.chatMessages || chat.chatMessages.length === 0) {
+                    return 'Nooo';
+                }
+
+                const previousChatMessages: Array<ChatCompletionRequestMessage> = chat.chatMessages.map((chatMessage) => {
+                    return {
+                        content: chatMessage.messageContent,
+                        role: chatMessage.role,
+                    };
+                });
+
+                const { data } = await openAi.createChatCompletion({
+                    model: config.openAi.model,
+                    messages: previousChatMessages,
+                    temperature: 1,
+                    max_tokens: config.openAi.maxTokens,
+                });
+
+                if (data.choices.length > 0) {
+                    let chosenCompletion = data.choices[0].message?.content ?? '';
+
+                    while (chosenCompletion.charAt(0) === '\n') {
+                        // Remove leading newline characters
+                        chosenCompletion = chosenCompletion.substring(1);
+                    }
+
+                    return chosenCompletion ?? '[No text provided by the AI]';
+                }
+
+                return '[No choices were provided by the AI]';
+            } catch (err) {
+                return `[Something went wrong]`;
+            }
+        };
+
         const createCompletion = async (prompt: string): Promise<string> => {
             try {
                 const { data } = await openAi.createCompletion({
                     // model: 'text-ada-001',
-                    model: 'text-davinci-003',
+                    model: 'gpt-3.5-turbo',
                     prompt: prompt,
                     temperature: 0.2,
-                    max_tokens: 1000,
+                    max_tokens: 4096,
                 });
 
                 if (data.choices.length > 0) {
@@ -84,6 +122,7 @@ export const getAiUtility = (): AiUtility => {
         };
 
         aiUtility = {
+            createChatCompletion: createChatCompletion,
             createCompletion: createCompletion,
             createEdit: createEdit,
             createImageUri: createImageUri,

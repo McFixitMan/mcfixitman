@@ -15,7 +15,7 @@ export interface ThunkAPIConfig {
     rejectValue: ApiRejectValue;
 }
 
-export const createApiThunk = <ReturnType, InputType = unknown>(
+export const createApiThunk = <ReturnType, InputType = void>(
     type: string,
     thunk: AsyncThunkPayloadCreator<ReturnType, InputType, ThunkAPIConfig>,
 ): AsyncThunk<ReturnType, InputType, ThunkAPIConfig> => {

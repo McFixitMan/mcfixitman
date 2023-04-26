@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { AiCompletion } from 'src/components/aiCompletion';
+import { AiChat } from 'src/components/aiChat';
 import { AiImage } from 'src/components/aiImage';
 import { PageWrapper } from 'src/components/pageWrapper';
 import { Tabs } from 'antd';
@@ -24,7 +24,8 @@ export const AiPage: React.FC<AiPageProps> = (props) => {
                         key: 'chat',
                         label: 'AI Chat',
                         children: (
-                            <AiCompletion />
+                            // <AiCompletion />
+                            <AiChat />
                         ),
                     },
                     {

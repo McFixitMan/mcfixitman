@@ -36,6 +36,7 @@
         "react-draggable": "^4.4.5",
         "react-highlight-words": "^0.18.0",
         "react-i18next": "^12.1.1",
+        "react-markdown": "^8.0.7",
         "react-redux": "^8.0.5",
         "react-router-dom": "^6.6.1",
         "react-scripts": "^5.0.1",
@@ -111,5 +112,5 @@
     "typeRoots": [
         "./node_modules/@types"
     ],
-    "version": "1.0.0"
+    "version": "1.0.1"
 }
